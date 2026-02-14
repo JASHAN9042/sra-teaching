@@ -319,6 +319,3 @@ def result(class_no, subject):
         subject=subject
     )
 # -----------------------------
-# RUN APP
-# -----------------------------
-if (__name__)
