@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup | Study Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-body">
+
+<div class="auth-overlay"></div>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Create Your Account 🚀</h2>
+        <p>Join Study Hub & start learning today</p>
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            <button type="submit" class="auth-btn">Create Account</button>
+        </form>
+
+        <div class="auth-links">
+            <a href="/">← Back to Home</a>
+            <a href="/login">Already have an account?</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

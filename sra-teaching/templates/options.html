@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Subject</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="notes-body">
+
+<div class="navbar">
+    <h2>Study Hub</h2>
+    <a href="/" class="back-btn">← Home</a>
+</div>
+
+<div class="notes-header">
+    <h1>Class {{ class_no }} Subjects</h1>
+    <p>Select subject to continue</p>
+</div>
+
+<div class="notes-container">
+
+    {% if class_no == 10 %}
+        <a href="/subject/{{class_no}}/english" class="dash-card">English</a>
+        <a href="/subject/{{class_no}}/maths" class="dash-card">Maths</a>
+        <a href="/subject/{{class_no}}/science" class="dash-card">Science</a>
+        <a href="/subject/{{class_no}}/hindi" class="dash-card">Hindi</a>
+        <a href="/subject/{{class_no}}/punjabi" class="dash-card">Punjabi</a>
+        <a href="/subject/{{class_no}}/social" class="dash-card">Social Science</a>
+    {% elif class_no == 12 %}
+        <a href="/subject/{{class_no}}/psychology" class="dash-card">Psychology</a>
+        <a href="/subject/{{class_no}}/english" class="dash-card">English</a>
+        <a href="/subject/{{class_no}}/maths" class="dash-card">Maths</a>
+        <a href="/subject/{{class_no}}/hindi" class="dash-card">Hindi</a>
+        <a href="/subject/{{class_no}}/punjabi" class="dash-card">Punjabi</a>
+        <a href="/subject/{{class_no}}/it" class="dash-card">IT</a>
+        <a href="/subject/{{class_no}}/physical" class="dash-card">Physical Education</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapters | Study Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="chapter-body">
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>Study Hub</h2>
+    <a href="/class/{{ class_no }}" class="back-btn">← Subjects</a>
+</div>
+
+<!-- Header -->
+<div class="chapter-header">
+    <h1>
+        Class {{ class_no }} –
+        {{ subject | replace('_',' ') | capitalize }}
+    </h1>
+    <p>Select a chapter to open notes</p>
+</div>
+
+<!-- Chapter Grid -->
+<div class="chapter-container">
+
+    {% for ch in chapters %}
+    <div class="chapter-card">
+        <div class="chapter-number">{{ ch }}</div>
+
+        <h3>Chapter {{ ch }}</h3>
+        <p>{{ subject | replace('_',' ') | capitalize }}</p>
+
+        <div class="chapter-actions">
+            <a href="/pdf/{{ subject }}{{ class_no }}_ch{{ ch }}.pdf"
+               target="_blank">
+               View
+            </a>
+
+            <a href="/pdf/{{ subject }}{{ class_no }}_ch{{ ch }}.pdf"
+               download>
+               Download
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

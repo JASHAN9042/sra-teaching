@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="test-container">
+
+    <!-- HEADER -->
+    <div class="test-header">
+        <h2>Test Result</h2>
+        <p>Class {{ class_no }} • {{ subject|capitalize }}</p>
+    </div>
+
+    <!-- SCORE SUMMARY -->
+    <div class="question-box" style="text-align:center;">
+        <h3 style="margin-bottom:10px;">Your Score</h3>
+        <div style="font-size:42px; font-weight:700; color:#1e3c72;">
+            {{ score }} / {{ total }}
+        </div>
+
+        {% set percent = (score * 100) // total if total > 0 else 0 %}
+
+        <p style="margin-top:10px; font-size:16px;">
+            Percentage: <b>{{ percent }}%</b>
+        </p>
+
+        {% if percent >= 33 %}
+            <p style="margin-top:8px; color:#0f5132; font-weight:600;">
+                ✅ Status: PASS
+            </p>
+        {% else %}
+            <p style="margin-top:8px; color:#842029; font-weight:600;">
+                ❌ Status: FAIL
+            </p>
+        {% endif %}
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div style="display:flex; gap:12px; margin-top:15px; flex-wrap:wrap;">
+        <a href="/dashboard" class="submit-btn" style="text-decoration:none; text-align:center;">
+            Go to Dashboard
+        </a>
+        <a href="/test/{{ class_no }}/{{ subject }}" class="submit-btn"
+           style="text-decoration:none; text-align:center; background:linear-gradient(135deg,#6c757d,#495057);">
+            Re-Attempt Test
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="test-footer">
+        © SRA AI • Online Test System
+    </div>
+
+</div>
+
+</body>
+</html>

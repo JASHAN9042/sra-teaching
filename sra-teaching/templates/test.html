@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Test | Study Hub</title>
+             <p>Class:{{class_no}}</p>
+             <p>Subject:{{subject}}</p>
+             <p>Total Questions:{{questions|length}}</p>
+             
+             {% for q in questions %}
+             <p>{{ loop.index }}.{{q.question}}</p>
+             {% endfor %}
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="test-body">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>📝 Study Hub Test</h2>
+        <a href="/subject/{{ class_no }}/{{ subject }}" class="back-btn">
+            ← Back
+        </a>
+    </div>
+
+    <!-- Header -->
+    <div class="test-header">
+        <h1>
+            Class {{ class_no }} –
+            {{ subject | replace('_',' ') | capitalize }} Test
+        </h1>
+        <p>Choose the correct option</p>
+
+        <div class="timer">
+            ⏱ Time: <span id="time">10:00</span>
+        </div>
+    </div>
+
+    <!-- Test Form -->
+    <form method="POST" action="/result/{{ class_no }}/{{ subject }}">
+
+{% for q in questions %}
+<div class="question-box">
+    <div class="question-text">
+        {{ loop.index }}. {{ q.question }}
+    </div>
+
+    <div class="options">
+        <label>
+            <input type="radio" name="q{{ loop.index }}" value="a"> {{ q.a }}
+        </label>
+        <label>
+            <input type="radio" name="q{{ loop.index }}" value="b"> {{ q.b }}
+        </label>
+        <label>
+            <input type="radio" name="q{{ loop.index }}" value="c"> {{ q.c }}
+        </label>
+        <label>
+            <input type="radio" name="q{{ loop.index }}" value="d"> {{ q.d }}
+        </label>
+    </div>
+</div>
+{% endfor %}
+
+<button class="submit-btn">Submit Test</button>
+</form>
+
+</body>
+</html>

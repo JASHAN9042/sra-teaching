@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Study Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dash-body">
+
+<!-- Top Navbar -->
+<div class="navbar">
+    <h2>Study Hub</h2>
+    <a href="/logout" class="logout-btn">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="dash-container">
+
+    <h1 class="dash-title">Welcome to Dashboard</h1>
+    <p class="dash-sub">Select your class to continue learning</p>
+
+    <div class="card-grid">
+
+        <a href="/class/10" class="dash-card">
+            <h3>Class 10</h3>
+            <p>Notes • Tests • Revision</p>
+        </a>
+
+        <a href="/class/12" class="dash-card">
+            <h3>Class 12</h3>
+            <p>Notes • Tests • Revision</p>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

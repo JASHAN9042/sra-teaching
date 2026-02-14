@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Option | Study Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="option-body">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>📘 Study Hub</h2>
+        <a href="/class/{{ class_no }}" class="back-btn">
+            ← Subjects
+        </a>
+    </div>
+
+    <!-- Header -->
+    <div class="option-header">
+        <h1>
+            Class {{ class_no }} –
+            {{ subject | replace('_',' ') | capitalize }}
+        </h1>
+        <p>Select what you want to do</p>
+    </div>
+
+    <!-- Options -->
+    <div class="option-container">
+
+        <!-- NOTES -->
+        <a href="/notes/{{ class_no }}/{{ subject }}" class="option-card notes">
+            <i class="fa-solid fa-book-open"></i>
+            <h3>Notes</h3>
+            <p>Chapter-wise PDF notes</p>
+        </a>
+
+        <!-- REVISION -->
+        <a href="/revision/{{ class_no }}/{{ subject }}" class="option-card revision">
+            <i class="fa-solid fa-rotate"></i>
+            <h3>Revision</h3>
+            <p>Quick revision material</p>
+        </a>
+
+        <!-- TEST -->
+        <a href="/test/{{ class_no }}/{{ subject }}" class="option-card test">
+            <i class="fa-solid fa-clipboard-question"></i>
+            <h3>Test</h3>
+            <p>MCQ based online tests</p>
+        </a>
+
+    </div>
+
+</body>
+</html>
